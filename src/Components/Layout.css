@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+}
+ul {
+  margin-bottom: 0 !important;
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--poppins);
+}
+a:hover {
+  text-decoration: none !important;
+  color: var(--lightGreen);
+}
+:root {
+  --letterSpacing: 0.04rem;
+  --green: #028a2f;
+  --darkGreen: #00541c;
+  --mediumGreen: #c8fcc8;
+  --lightGreen: #f2fef2;
+  --darkGrey: #0c1416;
+  --darkBlue: #0f1e21;
+  --poppins: "Poppins", sans-serif;
+  --playfairDisplay: "Playfair Display";
+  --maxWidth: 1386px;
+  --transition: 500ms ease-in-out;
+}
+button {
+  position: relative;
+}
+
+.button-arrow {
+  position: absolute;
+  right: 15px;
+}
+
+/* row container */
+.row-container {
+  max-width: 1386px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-around {
+  justify-content: space-around;
+}
+.flex-align-center {
+  align-items: center;
+}
+
+/* font family */
+.tokyo-zen {
+  font-family: var(--zen);
+}
+.della {
+  font-family: var(--playfairDisplay);
+}
+/* colors */
+.gold {
+  color: var(--green);
+}
+
+/* font sizes  */
+.large-font-size {
+  font-size: 5rem;
+}
+.column-font-size {
+  font-size: 2rem;
+}
+@media (max-width: 800px) {
+  .large-font-size {
+    font-size: 2rem;
+  }
+  .column-font-size {
+    font-size: 1.5rem;
+  }
+}
+
+/* invalid  */
+.invalid {
+  border: 2px solid red;
+}
+.errors {
+  color: red;
+}
+.success {
+  color: green;
+}
+
+/* font align */
+.center-align {
+  text-align: center;
+}
+
+/* font weight */
+.bold {
+  font-weight: 700;
+}
+.medium {
+  font-weight: 500;
+}
+/* carousel  */
+.carousel-indicators {
+  position: absolute !important;
+  bottom: -50px !important;
+}
+.carousel-indicators li {
+  background-color: black !important;
+}
+/* hero carousel  */
+
+/* active classes  */
+.inactive {
+  display: none !important;
+}
+.active {
+  display: block;
+}
+/* button active class */
+.button-active {
+  background: var(--green) !important;
+  color: var(--darkGrey) !important;
+}
+
+/* Gallery Image wrapper */
+.gallery-image-wrapper {
+  height: 100%;
+  width: 100%;
+}
+/* border radius */
+.round-border {
+  border-radius: 50%;
+  width: 600px;
+}
+
+/* input fields */
+input[type="date"]::before {
+  content: attr(placeholder) ":  ";
+}
+input[type="date"]:focus::before {
+  content: "" !important;
+}
+input[type="time"]::before {
+  content: attr(placeholder) ":  ";
+}
+input[type="time"]:focus::before {
+  content: "" !important;
+}

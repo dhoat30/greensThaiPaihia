@@ -1,0 +1,49 @@
+{
+  "name": "delhi6gb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "delhi6GB",
+  "author": "Gurpreet",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/pro-duotone-svg-icons": "^5.15.3",
+    "@fortawesome/pro-light-svg-icons": "^5.15.3",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "axios": "^0.21.1",
+    "babel-plugin-styled-components": "^1.13.2",
+    "bootstrap": "^4.6.0",
+    "gatsby": "^3.9.0",
+    "gatsby-background-image": "^1.5.3",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-image": "^1.9.0",
+    "gatsby-plugin-manifest": "^3.9.0",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
+    "gatsby-plugin-react-helmet": "^4.9.0",
+    "gatsby-plugin-sharp": "^3.9.0",
+    "gatsby-plugin-styled-components": "^4.9.0",
+    "gatsby-source-filesystem": "^3.9.0",
+    "gatsby-source-wordpress": "^5.9.0",
+    "gatsby-transformer-sharp": "^3.9.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-lightbox-gallery": "^2.0.1",
+    "simple-react-lightbox": "^3.6.6",
+    "styled-components": "^5.3.0"
+  }
+}
