@@ -8,7 +8,7 @@ import SpecialContent from '../../UI/SpecialContent/SpecialContent'
 
 const query = graphql`
 {
-  allWpMenuImage(filter: {}, skip: 2, sort: {fields: date, order: DESC}) {
+  allWpMenuImage( sort: {fields: date, order: DESC}) {
     edges {
       node {
         id

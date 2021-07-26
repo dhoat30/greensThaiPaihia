@@ -24,6 +24,8 @@ function AnchorLink(props) {
 }
 const Container = styled.a`
     display: inline-block;
+    text-align: center;
+
     text-decoration: none; 
     letter-spacing: var(--letterSpacing);
     border: 2px solid var(--green);
@@ -47,7 +49,6 @@ const Container = styled.a`
 
 const FontStyle = styled(FontAwesomeIcon)`
 margin-right: 5px;
-
 `
 
 export default AnchorLink

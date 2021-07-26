@@ -32,7 +32,13 @@ function Header() {
       label: data.title
     }
   })
-
+  const mobileMenuArrayData = dataArray.map(data => {
+    return {
+      id: data.ID,
+      url: data.url,
+      label: data.title
+    }
+  })
   return (
     <Container>
       <DesktopNavbar className="row-container">
@@ -42,8 +48,8 @@ function Header() {
       </DesktopNavbar>
 
       <MobileNavbar className="row-container">
-        {/* <LinkStyle to="/"> <Logo header={true} width="200px" /></LinkStyle>
-        <Navbar firstMenuArray={mobileMenuArrayData} /> */}
+        <LinkStyle to="/"> <Logo header={true} width="200px" /></LinkStyle>
+        <Navbar firstMenuArray={mobileMenuArrayData} />
       </MobileNavbar>
     </Container>
   )
@@ -89,6 +95,8 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+z-index: 120;
+
  }
 
 `

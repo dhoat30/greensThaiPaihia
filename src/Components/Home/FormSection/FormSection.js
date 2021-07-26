@@ -7,7 +7,7 @@ function FormSection() {
 
 
     return (
-        <Container>
+        <Container id="book-table">
             <Content>
                 <SectionTitle color="var(--green) ">Book a Table</SectionTitle>
                 <Form></Form>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import SectionTitle from '../Titles/SectionTitle'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import ElephantPattern from '../Pattern/ElephantPattern'
+import { text } from '@fortawesome/fontawesome-svg-core'
 
 function Hero(props) {
     const desktopImage = getImage(props.data.imageSharp)
@@ -11,22 +12,23 @@ function Hero(props) {
     return (
         <Container containerHeight={props.containerHeight}>
 
+            {props.textData ?
+                <Content className="row-container">
+                    <SectionTitle subTitle={props.textData.subtitle} color="var(--green)"> {props.textData.title} </SectionTitle>
 
-            <Content className="row-container">
-                <SectionTitle subTitle={props.data.subtitle} color="var(--green)"> {props.data.title} </SectionTitle>
+                    {props.buttons ?
+                        null :
+                        <ButtonsContainer>
+                            <AnchorLink link={props.textData.orderOnlineLink} background={true} targetBlank={true}> Order Online </AnchorLink>
+                            <AnchorLink link={props.textData.bookTable} showIcon={false}>Book a table</AnchorLink>
+                        </ButtonsContainer>
 
-                {!props.buttons ?
-                    null :
-                    <ButtonsContainer>
-                        <AnchorLink link={props.data.orderOnlineLink} background={true} targetBlank={true}> Order Online </AnchorLink>
-                        <AnchorLink showIcon={false}>Book a table</AnchorLink>
-                    </ButtonsContainer>
+                    }
 
-                }
-
-            </Content>
-            <DesktopGatsbyImage image={desktopImage} alt={props.data.title} />
-            <MobileGatsbyImage image={mobileImage} alt={props.data.title} />
+                </Content>
+                : null}
+            <DesktopGatsbyImage image={desktopImage} alt={props.textData ? props.textData.title : "hero section"} />
+            <MobileGatsbyImage image={mobileImage} alt={props.textData ? props.textData.title : "hero section"} />
 
             <PatternContainer className="row-container">
                 <ElephantPatternStyle />

@@ -5,6 +5,7 @@ import axios from 'axios'
 import ColumnTitle from '../UI/Titles/ColumnTitle'
 import AnchorLinkIcon from '../UI/AnchorLinkIcon/AnchorLinkIcon'
 import Copyright from '../UI/Copyright/Copyright'
+import MobileFixedButtons from '../UI/MobileFixedButtons/MobileFixedButtons'
 
 const Footer = (props) => {
   const [dataArray, setDataArray] = useState([])
@@ -17,84 +18,94 @@ const Footer = (props) => {
       })
   }, [])
 
-  const infoArray = dataArray.map(item => {
-    return {
-      streetAddress: item.acf.street_address,
-      region: item.acf.region,
-      phone: item.acf.phone,
-      email: item.acf.email,
-      facebook: item.acf.facebook,
-      tripAdvisor: item.acf.trip_advisor,
-      menuLog: item.acf.menu_log,
-      openingHours: item.acf.opening_hours,
-      closed: item.acf.closed_,
-      copyright: item.acf.copyright
+  let infoArray
+  if (dataArray.length > 0) {
+    infoArray = dataArray.map(item => {
+      return {
+        streetAddress: item.acf.street_address,
+        region: item.acf.region,
+        phone: item.acf.phone,
+        email: item.acf.email,
+        facebook: item.acf.facebook,
+        tripAdvisor: item.acf.trip_advisor,
+        menuLog: item.acf.menu_log,
+        openingHours: item.acf.opening_hours,
+        closed: item.acf.closed_,
+        copyright: item.acf.copyright,
+        orderOnlineLink: item.acf.order_online_link
+      }
+    })
+  }
+  else {
+    infoArray = "Loading"
+  }
 
-    }
-  })
+
 
   return (
     <React.Fragment>
-      {
-        infoArray[0] ?
-          <Container>
-            <Content className="row-container">
 
-              <ContactBox>
-                < ColumnTitle color="var(--green)">
-                  Contact Us
-                </ColumnTitle >
-                <Items>
-                  <AnchorLinkIcon
-                    link={`tel: ${infoArray[0].streetAddress}`}
-                    icon={"faMapMarkerAlt"}
-                  >
-                    {infoArray[0].streetAddress} <SecondText >{infoArray[0].region}</SecondText>
-                  </AnchorLinkIcon>
+      <Container>
+        <Content className="row-container">
 
-                  <AnchorLinkIcon
-                    link={`tel: ${infoArray[0].phone}`}
-                    icon={"faPhoneAlt"}
-                  >
-                    {infoArray[0].phone}
-                  </AnchorLinkIcon>
+          <ContactBox>
+            < ColumnTitle color="var(--green)">
+              Contact Us
+            </ColumnTitle >
+            <Items>
+              <AnchorLinkIcon
+                link={`tel: ${infoArray[0].streetAddress}`}
+                icon={"faMapMarkerAlt"}
+              >
+                {infoArray[0].streetAddress} <SecondText >{infoArray[0].region}</SecondText>
+              </AnchorLinkIcon>
 
-                  <AnchorLinkIcon
-                    link={`mailto: ${infoArray[0].email}`}
-                    icon={"faEnvelope"}
-                  >
-                    {infoArray[0].email}
-                  </AnchorLinkIcon>
-                </Items>
+              <AnchorLinkIcon
+                link={`tel: ${infoArray[0].phone}`}
+                icon={"faPhoneAlt"}
+              >
+                {infoArray[0].phone}
+              </AnchorLinkIcon>
+
+              <AnchorLinkIcon
+                link={`mailto: ${infoArray[0].email}`}
+                icon={"faEnvelope"}
+              >
+                {infoArray[0].email}
+              </AnchorLinkIcon>
+            </Items>
 
 
-              </ContactBox>
+          </ContactBox>
 
-              <LogoContainer>
-                <Logo width="250px" mobileWidth="220px" />
-                <SocialContainer>
-                  <AnchorLinkIcon target="_blank" icon="faFacebook" link={infoArray[0].facebook} size="35px"> </AnchorLinkIcon>
-                  <AnchorLinkIcon target="_blank" icon="faTripadvisor" link={infoArray[0].tripAdvisor} size="35px"> </AnchorLinkIcon>
+          <LogoContainer>
+            <Logo width="250px" mobileWidth="220px" />
+            <SocialContainer>
+              <AnchorLinkIcon target="_blank" icon="faFacebook" link={infoArray[0].facebook} size="35px"> </AnchorLinkIcon>
+              <AnchorLinkIcon target="_blank" icon="faTripadvisor" link={infoArray[0].tripAdvisor} size="35px"> </AnchorLinkIcon>
 
-                </SocialContainer>
-              </LogoContainer>
+            </SocialContainer>
+          </LogoContainer>
 
-              <OpeningHoursContainer>
-                <ColumnTitle color="var(--green)">
-                  Opening Hours
-                </ColumnTitle >
-                <Items>
-                  <AnchorLinkIcon icon="faClock" >
-                    Tuesday–Sunday
-                    <SecondText >{infoArray[0].openingHours}</SecondText>
-                    <SecondText >{infoArray[0].closed} Closed</SecondText>
-                  </AnchorLinkIcon>
-                </Items>
-              </OpeningHoursContainer>
-            </Content>
-            <Copyright copyright={infoArray[0].copyright} />
-          </Container > : null
-      }
+          <OpeningHoursContainer>
+            <ColumnTitle color="var(--green)">
+              Opening Hours
+            </ColumnTitle >
+            <Items>
+              <AnchorLinkIcon icon="faClock" >
+                Tuesday–Sunday
+                <SecondText >{infoArray[0].openingHours}</SecondText>
+                {infoArray[0].closed ?
+                  <SecondText >{infoArray[0].closed} Closed</SecondText> : null
+                }
+
+              </AnchorLinkIcon>
+            </Items>
+          </OpeningHoursContainer>
+        </Content>
+        <Copyright copyright={infoArray[0].copyright} />
+        <MobileFixedButtons orderOnlineLink={infoArray[0].orderOnlineLink} phoneNumber={infoArray[0].phoneNumber} />
+      </Container >
 
     </React.Fragment>
 

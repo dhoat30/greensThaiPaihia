@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Hero from '../../UI/Hero/Hero'
 import styled from 'styled-components'
 import Carousel from 'react-bootstrap/Carousel'
-
+import axios from 'axios'
 const query = graphql`
 {
   allWpSlider(
@@ -42,25 +42,43 @@ const query = graphql`
 `
 
 function HeroSection() {
+  // api data
+  const [dataArray, setDataArray] = useState([])
+  useEffect(() => {
+    axios(`${process.env.WORDPRESS_URL}/wp-json/wp/v2/slider`)
+      .then(res => {
+        setDataArray(res.data)
+      }).catch(err => {
+        console.log(err)
+      })
+  }, [])
 
+
+  const acfData = dataArray.map(data => {
+    return {
+      title: data.acf.title,
+      subtitle: data.acf.sub_title,
+      phoneNumber: data.acf.phone_number,
+      orderOnlineLink: data.acf.order_online_link,
+      bookTable: "#book-table"
+    }
+  })
+  console.log(acfData[0])
+  // Graph ql data 
   const data = useStaticQuery(query)
 
-  const dataArray = data.allWpSlider.edges.map(edge => {
+  const graphDataArray = data.allWpSlider.edges.map(edge => {
     return {
-      title: edge.node.sliderACF.title,
       id: edge.node.id,
-      subtitle: edge.node.sliderACF.subTitle,
-      phoneNumber: edge.node.sliderACF.phoneNumber,
-      orderOnlineLink: edge.node.sliderACF.orderOnlineLink,
       imageSharp: edge.node.featuredImage.node.localFile.childImageSharp,
       mobileImage: edge.node.sliderACF.mobileImage.localFile.childImageSharp
     }
   })
-
-  const HeroComponent = dataArray.map(data => {
+  const HeroComponent = graphDataArray.map((data, index) => {
+    console.log(index)
     return (
       <Carousel.Item key={data.id}>
-        <Hero data={data} />
+        <Hero data={data} textData={acfData[index]} />
       </Carousel.Item>
 
     )
@@ -74,6 +92,7 @@ function HeroSection() {
 
 
         {HeroComponent}
+
 
       </Carousel>
 
