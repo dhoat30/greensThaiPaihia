@@ -5,7 +5,7 @@ function Contact() {
     return (
         <Container>
             <Flex className="row-container">
-                <IFrameStyle src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.755445470458!2d174.12030761549858!3d-35.26233938029398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0ba569d0d12775%3A0x7998c264e3d836ad!2sGREEN&#39;S%20Russell%20-%20Indian%20%26%20Thai%20Cuisine!5e0!3m2!1sen!2sin!4v1627146372061!5m2!1sen!2sin" style={{ border: '0' }} allowfullscreen="" loading="lazy"></IFrameStyle>
+                <IFrameStyle src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.000775275722!2d174.08911431549902!3d-35.28110698028946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0bbad07254bf43%3A0xdde16356c7d58283!2sGREEN&#39;S%20-%20Paihia%20-%20Thai%20Cuisine!5e0!3m2!1sen!2sid!4v1627296735572!5m2!1sen!2sid" style={{ border: '0' }} allowfullscreen="" loading="lazy"></IFrameStyle>
                 <FormSection />
             </Flex>
 

@@ -12,16 +12,13 @@ const query = graphql`
         aboutUsACF {
           aboutRestaurant
           historyContent
-          indianChefContent
-          indianChefDesignation
-          indianChefs
           introductionContent
           restaurantManagerContent
           restaurantManagerName
-          thaiChefContent
-          thaiChefDesignation
-          thaiChefName
-          thaiChefImage {
+          chefContent
+          chefDesignation
+          chefName
+          chefImage {
             localFile {
               childImageSharp {
                 gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
@@ -49,13 +46,7 @@ const query = graphql`
               }
             }
           }
-          indianChefImage {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
-              }
-            }
-          }
+          
           firstCardImage {
             localFile {
               childImageSharp {
@@ -92,14 +83,10 @@ function AboutPage() {
       secondCardImage: data.node.aboutUsACF.secondCardImage.localFile.childImageSharp,
       history: data.node.aboutUsACF.historyContent,
       aboutRestaurant: data.node.aboutUsACF.aboutRestaurant,
-      indianChefName: data.node.aboutUsACF.indianChefs,
-      indianChefDesignation: data.node.aboutUsACF.indianChefDesignation,
-      indianChefContent: data.node.aboutUsACF.indianChefContent,
-      indianChefImage: data.node.aboutUsACF.indianChefImage.localFile.childImageSharp,
-      thaiChefName: data.node.aboutUsACF.thaiChefName,
-      thaiChefDesignation: data.node.aboutUsACF.thaiChefDesignation,
-      thaiChefContent: data.node.aboutUsACF.thaiChefContent,
-      thaiChefImage: data.node.aboutUsACF.thaiChefImage.localFile.childImageSharp,
+      chefName: data.node.aboutUsACF.chefName,
+      chefDesignation: data.node.aboutUsACF.chefDesignation,
+      chefContent: data.node.aboutUsACF.chefContent,
+      chefImage: data.node.aboutUsACF.chefImage.localFile.childImageSharp,
       restaurantManagerName: data.node.aboutUsACF.restaurantManagerName,
       restaurantManagerDesignation: "Restaurant Manager",
       restaurantManagerContent: data.node.aboutUsACF.restaurantManagerContent,

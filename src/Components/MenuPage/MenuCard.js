@@ -5,7 +5,7 @@ import MediumFonts from '../UI/Titles/MediumFonts'
 function MenuCard(props) {
     return (
         <React.Fragment >
-            <Card onClick={props.menuCardClick}>
+            <Card href={props.link} target="_blank">
                 <ImgContainer>
                     <ImgStyle src={props.image} alt="takeaway menu"></ImgStyle>
                 </ImgContainer>
@@ -17,17 +17,23 @@ function MenuCard(props) {
 }
 
 
-const Card = styled.div`
+const Card = styled.a`
 margin-top: 40px;
+
+text-decoration: none;
+color: var(--darkGrey);
 width: 49%; 
 cursor: pointer;
-@media (max-width: 600px ){ 
+@media (max-width: 600px ){
     width: 100%;
 }
-
+&:hover{ 
+    color: var(--darkGrey);
+}
 `
 const ImgContainer = styled.div`
 overflow: hidden;
+height: 300px
 `
 const ImgStyle = styled.img`
 width: 100%;

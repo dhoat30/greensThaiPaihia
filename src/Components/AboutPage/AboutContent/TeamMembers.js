@@ -7,15 +7,11 @@ function TeamMembers(props) {
     return (
         <Container>
             <ImageContainer>
+
                 <Card>
-                    <ImageCardStyle image={props.dataArray[0].indianChefImage} title="Thai Dish" />
-                    <ColumnTitle> {props.dataArray[0].indianChefName} – {props.dataArray[0].indianChefDesignation} </ColumnTitle>
-                    <MediumFonts>{props.dataArray[0].indianChefContent} </MediumFonts>
-                </Card>
-                <Card>
-                    <ImageCardStyle image={props.dataArray[0].thaiChefImage} title="Indian Dish" />
-                    <ColumnTitle> {props.dataArray[0].thaiChefName} – {props.dataArray[0].thaiChefDesignation}</ColumnTitle>
-                    <MediumFonts>{props.dataArray[0].thaiChefContent} </MediumFonts>
+                    <ImageCardStyle image={props.dataArray[0].chefImage} title="Indian Dish" />
+                    <ColumnTitle> {props.dataArray[0].chefName} – {props.dataArray[0].chefDesignation}</ColumnTitle>
+                    <MediumFonts>{props.dataArray[0].chefContent} </MediumFonts>
 
                 </Card>
                 <Card>
